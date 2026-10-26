@@ -26,7 +26,7 @@
     <style>
       .float-doodle {
         animation: floatMove 4.5s ease-in-out infinite;
-        transform-origin: 820px 150px;
+        transform-origin: 120px 130px;
       }
       .sparkle {
         animation: sparkleAnim 3s ease-in-out infinite;
@@ -36,7 +36,7 @@
       }
       @keyframes floatMove {
         0% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-8px) rotate(2.5deg); }
+        50% { transform: translateY(-8px) rotate(2deg); }
         100% { transform: translateY(0px) rotate(0deg); }
       }
       @keyframes sparkleAnim {
@@ -50,8 +50,8 @@
   <rect width="1000" height="320" rx="20" fill="url(#bgGrad)" />
   <rect width="998" height="318" x="1" y="1" rx="19" stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none" />
 
-  <!-- Ambient Light Circles (No filters - 100% GitHub Camo Safe) -->
-  <circle cx="200" cy="80" r="160" fill="url(#glowBlue)" />
+  <!-- Ambient Light Circles -->
+  <circle cx="180" cy="80" r="150" fill="url(#glowBlue)" />
   <circle cx="820" cy="160" r="180" fill="url(#glowSky)" />
 
   <!-- Grid Pattern Overlay -->
@@ -67,7 +67,7 @@
   </g>
 
   <!-- Left Content (Branding & Typography) -->
-  <g transform="translate(64, 52)">
+  <g transform="translate(60, 50)">
     <!-- Category Pill -->
     <rect width="154" height="28" rx="14" fill="rgba(37,99,235,0.2)" stroke="#3b82f6" stroke-width="1.2" />
     <circle cx="14" cy="14" r="4" fill="#38bdf8" />
@@ -105,46 +105,49 @@
     </g>
   </g>
 
-  <!-- Right Floating Doodle with Clean Shadows -->
-  <g class="float-doodle" transform="translate(680, 20)">
-    <!-- Paper Sheet Vector Shadows -->
-    <rect x="25" y="25" width="210" height="250" rx="16" fill="#000000" opacity="0.3" />
-    <rect x="20" y="20" width="210" height="250" rx="16" fill="#0f172a" opacity="0.5" />
-    <rect x="15" y="15" width="210" height="250" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
-    
-    <!-- Dog Ear Fold -->
-    <path d="M185 15 L225 55 L185 55 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" />
-    <path d="M185 15 L225 55" stroke="#94a3b8" stroke-width="2" />
+  <!-- Anchored Right-Side Group: Firmly fixed at X=700 on the right side -->
+  <g transform="translate(700, 22)">
+    <!-- Floating and Tilting Sub-Group -->
+    <g class="float-doodle">
+      <!-- Paper Sheet Vector Shadows -->
+      <rect x="25" y="25" width="210" height="250" rx="16" fill="#000000" opacity="0.35" />
+      <rect x="20" y="20" width="210" height="250" rx="16" fill="#0f172a" opacity="0.5" />
+      <rect x="15" y="15" width="210" height="250" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+      
+      <!-- Dog Ear Fold -->
+      <path d="M185 15 L225 55 L185 55 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" />
+      <path d="M185 15 L225 55" stroke="#94a3b8" stroke-width="2" />
 
-    <!-- Document Header & Lines -->
-    <rect x="42" y="44" width="70" height="8" rx="4" fill="#2563eb" />
-    <rect x="42" y="66" width="130" height="5" rx="2.5" fill="#94a3b8" />
-    <rect x="42" y="80" width="150" height="5" rx="2.5" fill="#cbd5e1" />
-    <rect x="42" y="94" width="140" height="5" rx="2.5" fill="#cbd5e1" />
-    <rect x="42" y="108" width="120" height="5" rx="2.5" fill="#cbd5e1" />
+      <!-- Document Header & Lines -->
+      <rect x="42" y="44" width="70" height="8" rx="4" fill="#2563eb" />
+      <rect x="42" y="66" width="130" height="5" rx="2.5" fill="#94a3b8" />
+      <rect x="42" y="80" width="150" height="5" rx="2.5" fill="#cbd5e1" />
+      <rect x="42" y="94" width="140" height="5" rx="2.5" fill="#cbd5e1" />
+      <rect x="42" y="108" width="120" height="5" rx="2.5" fill="#cbd5e1" />
 
-    <!-- Citation Pill with Verified Badge -->
-    <g transform="translate(42, 132)">
-      <rect width="154" height="34" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8" />
-      <circle cx="18" cy="17" r="7" fill="#10b981" />
-      <path d="M15 17 L17 19 L21 15" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-      <text x="32" y="21" fill="#1e40af" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="11" font-weight="700">[Smith, 2021] ✓</text>
-    </g>
+      <!-- Citation Pill with Verified Badge -->
+      <g transform="translate(42, 132)">
+        <rect width="154" height="34" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8" />
+        <circle cx="18" cy="17" r="7" fill="#10b981" />
+        <path d="M15 17 L17 19 L21 15" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        <text x="32" y="21" fill="#1e40af" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="11" font-weight="700">[Smith, 2021] ✓</text>
+      </g>
 
-    <!-- Additional Lines -->
-    <rect x="42" y="184" width="150" height="5" rx="2.5" fill="#cbd5e1" />
-    <rect x="42" y="198" width="135" height="5" rx="2.5" fill="#cbd5e1" />
-    <rect x="42" y="212" width="110" height="5" rx="2.5" fill="#cbd5e1" />
+      <!-- Additional Lines -->
+      <rect x="42" y="184" width="150" height="5" rx="2.5" fill="#cbd5e1" />
+      <rect x="42" y="198" width="135" height="5" rx="2.5" fill="#cbd5e1" />
+      <rect x="42" y="212" width="110" height="5" rx="2.5" fill="#cbd5e1" />
 
-    <!-- Paperclip Accent -->
-    <path d="M60 5 C60 0, 80 0, 80 5 L80 40 C80 46, 68 46, 68 40 L68 12 C68 9, 74 9, 74 12 L74 35" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Paperclip Accent -->
+      <path d="M60 5 C60 0, 80 0, 80 5 L80 40 C80 46, 68 46, 68 40 L68 12 C68 9, 74 9, 74 12 L74 35" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round" />
 
-    <!-- Sparkle Stars -->
-    <g transform="translate(195, 110)" class="sparkle">
-      <path d="M0 8 L3 0 L6 8 L14 11 L6 14 L3 22 L0 14 L-8 11 Z" fill="#38bdf8" />
-    </g>
-    <g transform="translate(0, 180)" class="sparkle-delay">
-      <path d="M0 6 L2 0 L4 6 L10 8 L4 10 L2 16 L0 10 L-6 8 Z" fill="#14b8a6" />
+      <!-- Sparkle Stars -->
+      <g transform="translate(195, 110)" class="sparkle">
+        <path d="M0 8 L3 0 L6 8 L14 11 L6 14 L3 22 L0 14 L-8 11 Z" fill="#38bdf8" />
+      </g>
+      <g transform="translate(0, 180)" class="sparkle-delay">
+        <path d="M0 6 L2 0 L4 6 L10 8 L4 10 L2 16 L0 10 L-6 8 Z" fill="#14b8a6" />
+      </g>
     </g>
   </g>
 </svg>
