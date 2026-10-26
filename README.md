@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/assets/citesure-banner.svg" alt="CiteSure Animated Banner" width="100%" />
+  <img src="citesure-banner.svg" alt="CiteSure Animated Banner" width="100%" />
 </p>
 
 <p align="center">
