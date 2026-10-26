@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CiteSure — Citation Verification, Academic Formatting &amp; Copyright Safety</title>
+  <meta name="description" content="Cite with Confidence. Verify Every Source. Check citations, verify claims, and identify copyright concerns — all in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/lenis.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" id="brand-link" aria-label="CiteSure home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <polyline points="9 15 11 17 15 13"></polyline>
+          </svg>
+        </span>
+        <span class="brand-text">CiteSure</span>
+        <span class="brand-badge">Academic Suite</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <button type="button" class="nav-btn active" id="nav-home" data-view="input">Home</button>
+        <button type="button" class="nav-btn" id="nav-features">Features</button>
+        <button type="button" class="nav-btn" id="nav-how">How It Works</button>
+        <button type="button" class="nav-btn" id="nav-results" data-view="results" hidden>Results</button>
+        <button type="button" class="nav-btn" id="nav-report" data-view="report" hidden>Report</button>
+      </nav>
+      <div class="topbar-action">
+        <button type="button" class="btn btn-primary btn-small" id="nav-check-doc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          Check a Document
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- INPUT / HOMEPAGE -->
+    <section id="view-input" class="view">
+      <div class="hero-section" id="hero">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="hero-tag-dot" aria-hidden="true"></span>
+            <span>Academic Verification &amp; Integrity Suite</span>
+          </div>
+          <h1 class="hero-title">Make Every Citation Count.</h1>
+          <p class="hero-lead">Verify your sources, improve citation formatting, and check reuse requirements — all in one place.</p>
+        </div>
+        <div class="hero-doodle-wrap" aria-hidden="true">
+          <img src="assets/hero-paper-doodle.svg" alt="Paper doodle illustration" class="hero-doodle-img" width="220" height="183" />
+        </div>
+      </div>
+
+      <!-- Main Document Workspace Card directly beneath Hero -->
+      <div class="checker-card card" id="document-checker">
+        <div class="checker-head">
+          <div>
+            <div class="checker-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              Document Workspace
+            </div>
+            <h2>Check a Document</h2>
+            <p class="muted" style="margin:2px 0 0;font-size:13px">Upload a manuscript or paste your text to begin automated analysis</p>
+          </div>
+          <div class="checker-trust-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Private &amp; local processing
+          </div>
+        </div>
+
+        <form id="analyze-form" novalidate>
+          <div class="field" id="field-file">
+            <label for="file-input">Upload Document</label>
+            <div class="dropzone" id="dropzone">
+              <div class="dropzone-icon" aria-hidden="true">
+                <img src="assets/upload-paper-doodle.svg" alt="" width="34" height="34" class="dropzone-doodle" />
+              </div>
+              <div class="dropzone-info">
+                <input type="file" id="file-input" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+                <span id="file-name" class="dropzone-label">Drop PDF or DOCX here, or browse files</span>
+                <span class="dropzone-hint">Up to 20MB (.pdf, .docx)</span>
+              </div>
+              <button type="button" class="btn btn-ghost btn-small" id="clear-file" hidden>Remove</button>
+            </div>
+          </div>
+
+          <div class="divider"><span>or</span></div>
+
+          <div class="field" id="field-text">
+            <label for="text-input">Paste Manuscript Text</label>
+            <textarea id="text-input" rows="6" placeholder="Paste your manuscript text including in-text citations and reference list..."></textarea>
+          </div>
+
+          <div class="field" style="margin-bottom:16px">
+            <span class="label" id="style-label">Citation Style</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="style-label">
+              <input type="radio" name="style" id="style-apa" value="apa" checked /><label for="style-apa">APA 7</label>
+              <input type="radio" name="style" id="style-mla" value="mla" /><label for="style-mla">MLA 9</label>
+              <input type="radio" name="style" id="style-chicago" value="chicago" /><label for="style-chicago">Chicago</label>
+            </div>
+          </div>
+
+          <div id="input-error" class="alert alert-error" role="alert" hidden></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="analyze-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              Analyze Document
+            </button>
+            <span id="analyze-status" class="muted" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+
+      <div id="config-note" class="note"></div>
+
+      <!-- Explore CiteSure Tools Section -->
+      <div class="features-section" id="features">
+        <div class="section-header">
+          <div class="section-label">Explore Tools</div>
+          <h2 class="section-heading">Four Specialized Tools for Academic Rigor</h2>
+          <p class="section-sub">Select any tool to inspect citations, verify evidence, or check rights.</p>
+        </div>
+        <div class="features-grid" aria-label="CiteSure features">
+          <div class="feature-card" id="card-format" tabindex="0" role="button" aria-label="Open Citation Format Checker">
+            <div class="feature-card-top">
+              <div class="feature-icon-badge badge-format" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h3>Citation Format Checker</h3>
+              <p>Find and fix citation errors.</p>
+            </div>
+            <div class="feature-open-wrap">
+              <span class="feature-open-btn">Open Checker <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </div>
+
+          <div class="feature-card" id="card-evidence" tabindex="0" role="button" aria-label="Open Claim Verifier">
+            <div class="feature-card-top">
+              <div class="feature-icon-badge badge-evidence" aria-hidden="true">
+                <img src="assets/claim-source-doodle.svg" alt="" width="24" height="24" class="feature-doodle" />
+              </div>
+            </div>
+            <div class="feature-content">
+              <h3>Claim-to-Source Verifier</h3>
+              <p>Check whether your sources support your claims.</p>
+            </div>
+            <div class="feature-open-wrap">
+              <span class="feature-open-btn">Verify Claims <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </div>
+
+          <div class="feature-card" id="card-safety" tabindex="0" role="button" aria-label="Open Copyright and Citation Safety">
+            <div class="feature-card-top">
+              <div class="feature-icon-badge badge-safety" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h3>Copyright &amp; Citation Safety</h3>
+              <p>Identify attribution gaps and possible reuse risks.</p>
+            </div>
+            <div class="feature-open-wrap">
+              <span class="feature-open-btn">Audit Safety <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </div>
+
+          <div class="feature-card" id="card-permission" tabindex="0" role="button" aria-label="Open Permission Assistant">
+            <div class="feature-card-top">
+              <div class="feature-icon-badge badge-permission" aria-hidden="true">
+                <img src="assets/permission-shield-doodle.svg" alt="" width="24" height="24" class="feature-doodle" />
+              </div>
+            </div>
+            <div class="feature-content">
+              <h3>Permission Assistant</h3>
+              <p>Check licence terms and find permission options.</p>
+            </div>
+            <div class="feature-open-wrap">
+              <span class="feature-open-btn">Check Permissions <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="how-section" id="how-it-works">
+        <div class="section-header">
+          <div class="section-label">Workflow</div>
+          <h2 class="section-heading">How CiteSure Works</h2>
+          <p class="section-sub">A transparent, three-step review for manuscripts and citations.</p>
+        </div>
+        <div class="how-grid">
+          <div class="how-step">
+            <div class="how-step-top">
+              <div class="step-num">1</div>
+              <img src="assets/step1-doodle.svg" alt="" width="24" height="24" class="step-doodle" aria-hidden="true" />
+            </div>
+            <h4>Submit Document</h4>
+            <p>Upload a PDF/DOCX or paste manuscript text in APA 7, MLA 9, or Chicago style.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-top">
+              <div class="step-num">2</div>
+              <img src="assets/step2-doodle.svg" alt="" width="24" height="24" class="step-doodle" aria-hidden="true" />
+            </div>
+            <h4>Automated Verification</h4>
+            <p>Audit formatting syntax, verify claims against Crossref and OpenAlex, and inspect licenses.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-top">
+              <div class="step-num">3</div>
+              <img src="assets/step3-doodle.svg" alt="" width="24" height="24" class="step-doodle" aria-hidden="true" />
+            </div>
+            <h4>Review &amp; Export</h4>
+            <p>Stage corrections, review evidence excerpts, evaluate reuse terms, and export your report.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="view-results" class="view" hidden>
+      <div class="results-head">
+        <div>
+          <h1>Analysis Results</h1>
+          <p class="muted" id="results-meta"></p>
+        </div>
+        <div class="results-actions">
+          <button type="button" class="btn btn-ghost" id="new-analysis">New document</button>
+          <button type="button" class="btn btn-ghost" id="btn-view-report-from-results">Final report →</button>
+          <button type="button" class="btn btn-primary" id="open-review" disabled>Review changes (0)</button>
+        </div>
+      </div>
+
+      <div id="warnings" class="alert alert-info" hidden></div>
+
+      <div class="summary" id="summary" aria-label="Summary"></div>
+
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab active" id="tab-format" data-tab="format" aria-selected="true">Formatting <span class="count" id="count-format">0</span></button>
+        <button role="tab" class="tab" id="tab-evidence" data-tab="evidence" aria-selected="false">Evidence <span class="count" id="count-evidence">0</span></button>
+        <button role="tab" class="tab" id="tab-safety" data-tab="safety" aria-selected="false">Copyright &amp; Safety <span class="count" id="count-safety">0</span></button>
+      </div>
+
+      <div id="panel-format" class="panel">
+        <div class="filters">
+          <label>Issue type
+            <select id="f-type"><option value="">All</option></select>
+          </label>
+          <label>Severity
+            <select id="f-severity">
+              <option value="">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
+            </select>
+          </label>
+          <label>Location
+            <select id="f-location">
+              <option value="">All</option><option value="in-text">In-text</option><option value="reference">Reference list</option>
+            </select>
+          </label>
+          <label>Decision
+            <select id="f-decision">
+              <option value="">All</option><option value="pending">Undecided</option><option value="applied">Staged</option><option value="edited">Edited</option><option value="kept">Kept original</option>
+            </select>
+          </label>
+        </div>
+        <ul class="findings" id="format-list"></ul>
+      </div>
+
+      <div id="panel-evidence" class="panel" hidden>
+        <div id="verify-progress" class="progress-wrap" hidden>
+          <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+          <span class="muted" id="progress-text"></span>
+        </div>
+        <div class="filters">
+          <label>Verdict
+            <select id="e-verdict">
+              <option value="">All</option><option value="Supported">Supported</option><option value="Weakly Supported">Weakly Supported</option><option value="Mismatched">Mismatched</option><option value="Unverifiable">Unverifiable</option><option value="__uncited">Uncited</option>
+            </select>
+          </label>
+          <label>Problem type
+            <select id="e-problem">
+              <option value="">All</option>
+              <option value="incorrect_number">Incorrect number</option>
+              <option value="overgeneralization">Overgeneralization</option>
+              <option value="exaggeration">Exaggeration</option>
+              <option value="contradiction">Contradiction</option>
+              <option value="unsupported">Unsupported</option>
+            </select>
+          </label>
+          <label>Severity
+            <select id="e-severity">
+              <option value="">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
+            </select>
+          </label>
+          <label>Confidence
+            <select id="e-confidence">
+              <option value="">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
+            </select>
+          </label>
+        </div>
+        <ul class="findings" id="evidence-list"></ul>
+      </div>
+
+      <div id="panel-safety" class="panel" hidden>
+        <div class="filters">
+          <label>Classification
+            <select id="s-classification">
+              <option value="">All</option>
+              <option value="Likely permitted under the identified licence or policy">Likely Permitted</option>
+              <option value="Permission may be required">Permission May Be Required</option>
+              <option value="Attribution or licence conditions need attention">Attribution Needed</option>
+              <option value="Status unclear; further verification required">Status Unclear</option>
+            </select>
+          </label>
+          <label>Category
+            <select id="s-category">
+              <option value="">All</option>
+              <option value="copyright_risk">Copyright Risk</option>
+              <option value="plagiarism_concern">Possible Plagiarism</option>
+              <option value="missing_attribution">Missing Attribution</option>
+              <option value="licence_restriction">Licence Restriction</option>
+            </select>
+          </label>
+          <label>Severity
+            <select id="s-severity">
+              <option value="">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option><option value="info">Info</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-info" style="font-size:12.5px;margin-bottom:14px;padding:8px 12px">
+          <strong>Guidance Note:</strong> Automated academic guidance only. Text similarity does not prove infringement. Open access does not waive attribution.
+        </div>
+        <ul class="findings" id="safety-list"></ul>
+      </div>
+    </section>
+
+    <!-- REPORT -->
+    <section id="view-report" class="view" hidden>
+      <div class="results-head">
+        <div>
+          <button type="button" class="btn btn-ghost btn-small" id="report-back-btn" style="margin-bottom:10px">← Back to Results</button>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <h1>Final Academic Report</h1>
+            <span class="badge b-info" id="report-badge-status">Audit Complete</span>
+          </div>
+          <p class="muted" id="report-meta"></p>
+        </div>
+        <div class="results-actions">
+          <button type="button" class="btn btn-ghost" id="report-copy-summary" title="Copy executive summary to clipboard">Copy Summary</button>
+          <button type="button" class="btn btn-ghost" id="report-print">Print / PDF</button>
+          <button type="button" class="btn btn-ghost" id="report-download-json" title="Download raw audit JSON data">Export JSON</button>
+          <button type="button" class="btn btn-primary" id="report-download">Download (.md)</button>
+        </div>
+      </div>
+      <!-- In-Page Quick Navigation for Report -->
+      <nav class="report-nav" aria-label="Report sections navigation">
+        <a href="#rep-scorecard" class="report-nav-item active">Overview &amp; Scorecard</a>
+        <a href="#rep-checklist" class="report-nav-item">Pre-Submission Checklist</a>
+        <a href="#rep-part1" class="report-nav-item">Formatting Audit</a>
+        <a href="#rep-part2" class="report-nav-item">Evidence Verification</a>
+        <a href="#rep-part3" class="report-nav-item">Copyright &amp; Safety</a>
+      </nav>
+      <div id="report-body" class="report"></div>
+    </section>
+
+    <!-- PERMISSION ASSISTANT -->
+    <section id="view-permission" class="view" hidden>
+      <div class="results-head">
+        <div>
+          <button type="button" class="btn btn-ghost btn-small" id="perm-back-btn" style="margin-bottom:10px">← Back to Home</button>
+          <h1>Permission Assistant</h1>
+          <p class="lead" style="margin-bottom:0">Check reuse requirements, publisher policies, and licensing terms. Generate an editable request draft when needed.</p>
+        </div>
+      </div>
+
+      <form id="permission-form" class="card" style="margin-bottom:20px" novalidate>
+        <h2>Check Reuse Terms &amp; Permission</h2>
+        <div class="field">
+          <label for="perm-source">Source DOI, URL, or Publication Title <span style="color:var(--bad)">*</span></label>
+          <input type="text" id="perm-source" class="input-text" placeholder="e.g. 10.1038/s41586-020-2649-2 or publication title" required />
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="perm-material">Material to reuse</label>
+            <select id="perm-material" style="width:100%">
+              <option value="figure">Figure</option>
+              <option value="table">Table</option>
+              <option value="chart">Chart</option>
+              <option value="image">Image</option>
+              <option value="text">Text Passage</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="perm-exact">Exact page or figure (optional)</label>
+            <input type="text" id="perm-exact" class="input-text" placeholder="e.g. Figure 3, page 7" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="perm-use">Intended use</label>
+            <select id="perm-use" style="width:100%">
+              <option value="research paper">Research Paper</option>
+              <option value="thesis">Thesis</option>
+              <option value="assignment">Coursework</option>
+              <option value="presentation">Presentation</option>
+              <option value="website">Academic Website</option>
+              <option value="book chapter">Book Chapter</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="perm-audience">Audience and distribution</label>
+            <input type="text" id="perm-audience" class="input-text" placeholder="e.g. Academic readers, print &amp; digital" />
+          </div>
+        </div>
+
+        <div class="checkbox-row" style="margin-bottom:16px">
+          <label class="checkbox-label"><input type="checkbox" id="perm-commercial" /> Commercial use</label>
+          <label class="checkbox-label"><input type="checkbox" id="perm-modified" /> Modified or adapted material</label>
+          <label class="checkbox-label"><input type="checkbox" id="perm-thirdparty" /> Third-party credited material</label>
+        </div>
+
+        <details class="accordion" style="margin-bottom:16px">
+          <summary style="cursor:pointer;font-weight:600;font-size:13.5px;color:var(--muted)">Optional requester details (for letter draft)</summary>
+          <div class="grid-3" style="margin-top:12px">
+            <div class="field">
+              <label for="perm-name">Your Name</label>
+              <input type="text" id="perm-name" class="input-text" placeholder="Dr. Jane Doe" />
+            </div>
+            <div class="field">
+              <label for="perm-affiliation">Affiliation / Institution</label>
+              <input type="text" id="perm-affiliation" class="input-text" placeholder="University Department" />
+            </div>
+            <div class="field">
+              <label for="perm-email">Contact Email</label>
+              <input type="email" id="perm-email" class="input-text" placeholder="jane.doe@university.edu" />
+            </div>
+          </div>
+        </details>
+
+        <div id="perm-error" class="alert alert-error" role="alert" hidden></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="perm-evaluate-btn">Evaluate Permission</button>
+          <span id="perm-status" class="muted" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <!-- Outcome & Evaluation Card -->
+      <div id="perm-result-card" class="card" style="margin-bottom:20px" hidden></div>
+
+      <!-- Permission Request Draft Card -->
+      <div id="perm-draft-section" class="card" hidden></div>
+    </section>
+  </main>
+
+  <!-- Review changes dialog -->
+  <dialog id="review-dialog" aria-labelledby="review-title">
+    <form method="dialog" class="dialog-inner">
+      <h2 id="review-title">Review Changes</h2>
+      <p class="muted">Select which changes to include in your exported text.</p>
+      <ul id="review-list" class="review-list"></ul>
+      <div id="review-conflicts" class="alert alert-info" hidden></div>
+      <div class="dialog-actions">
+        <button class="btn btn-ghost" value="close">Close</button>
+        <button type="button" class="btn btn-ghost" id="copy-corrected">Copy corrected text</button>
+        <button type="button" class="btn btn-primary" id="download-corrected">Download corrected text (.txt)</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
