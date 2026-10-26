@@ -11,6 +11,7 @@
   <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-4.19-000000?style=flat-square&logo=express&logoColor=white" alt="Express" /></a>
   <a href="https://www.crossref.org/"><img src="https://img.shields.io/badge/Crossref-Live%20API-EF3340?style=flat-square" alt="Crossref" /></a>
   <a href="https://openalex.org/"><img src="https://img.shields.io/badge/OpenAlex-Scholarly%20Graph-2563EB?style=flat-square" alt="OpenAlex" /></a>
+  <a href="https://citesure-mu.vercel.app"><img src="https://img.shields.io/badge/Deployment-Live%20on%20Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Live Demo" /></a>
   <a href="LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-0D9488?style=flat-square" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/Tests-50%2F50%20Passing-10B981?style=flat-square" alt="Tests" />
 </p>
